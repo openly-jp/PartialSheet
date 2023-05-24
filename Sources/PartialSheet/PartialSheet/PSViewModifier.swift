@@ -14,7 +14,7 @@ struct PartialSheet: ViewModifier {
     
     // MARK: - Private Properties
     
-    @EnvironmentObject var manager: PSManager
+    @StateObject var manager = PSManager()
     @Environment(\.safeAreaInsets) var safeAreaInsets
     
     /// The rect containing the sheet content
@@ -124,6 +124,7 @@ struct PartialSheet: ViewModifier {
                     .edgesIgnoringSafeArea(.vertical)
             }
         }
+        .environmentObject(manager)
     }
 }
 
